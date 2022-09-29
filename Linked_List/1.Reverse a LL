@@ -1,0 +1,40 @@
+1.Assign prev as previous node of head i.e NULL
+2.Run until head is not null 
+3.Assign curr as next of head
+4.Now swap links(head.next=prev)
+5.move one step all process(prev=head,head=curr)
+6.Return prev(last head of ll)
+
+
+
+//function Template for Java
+
+/* linked list node class:
+
+class Node {
+    int value;
+    Node next;
+    Node(int value) {
+        this.value = value;
+    }
+}
+
+*/
+
+class Solution
+{
+    //Function to reverse a linked list.
+    Node reverseList(Node head)
+    {
+        Node prev=null;
+        
+        while(head!=null)
+        {
+            Node curr=head.next;
+            head.next=prev;
+            prev=head;
+            head=curr;
+        }
+        return prev;
+    }
+}
