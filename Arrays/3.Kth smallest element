@@ -1,0 +1,57 @@
+-Smallest element -use Max Heap
+-Largest element -Use Min Heap
+-Java uses min heap as built in and for max heap (pass Collections.reverseOrder())
+-Insert k elements into Priority queue(where peek element is kth smallest element)
+-Compare arr elements with peek element(if peek element is larger, then add arr element, and pop peek element)
+
+class Solution{
+    public static int kthSmallest(int[] arr, int l, int r, int k) 
+    { 
+        PriorityQueue<Integer>pq=new PriorityQueue<>(Collections.reverseOrder());
+        for(int i=0;i<k;i++)
+        {
+            pq.add(arr[i]);
+        }
+        for(int i=k;i<arr.length;i++)
+        {
+            if(arr[i]<pq.peek())
+            {
+                pq.poll();
+                pq.add(arr[i]);
+                
+            }
+        }
+        return pq.poll();
+        
+    } 
+}
+
+
+Approach 2
+-Implement a max-heap.
+-Insert first k elements of the array into the max-heap.
+-Insert the element one by one in a max-heap and check if the size of the max-heap is greater than k.
+  If so, pop the element from the top.
+  Repeat the above process till the array becomes empty.
+  
+  
+  
+  
+  class Solution{
+    public static int kthSmallest(int[] arr, int l, int r, int k) 
+    { 
+        PriorityQueue<Integer>pq=new PriorityQueue<>(Collections.reverseOrder());
+        for(int i=0;i<arr.length;i++)
+        {
+            pq.add(arr[i]);
+            if(pq.size()>k)
+            {
+                pq.poll();
+            }
+        }
+        return pq.peek();
+        
+    } 
+}
+
+Then, return the top most element of the max-heap i.e. kth smallest element of the array.
