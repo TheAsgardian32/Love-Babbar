@@ -1,0 +1,38 @@
+1.For max value,compare all elems in arr with max variable and update accordingly
+2.For min value,compare all elems in arr with min variable and update accordingly
+
+
+
+
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+  public static int sumOfMaxMin(int[] arr, int n) 
+  {
+      int x=mamax(arr);
+      int y=minax(arr);
+      int res=x+y;
+      return res;
+  }
+   public static int mamax(int[] arr)
+   {
+       int max=Integer.MIN_VALUE;
+       for(int i:arr)
+       {
+           if(i>max)
+               max=i;
+       }
+       return max;
+   }
+   public static int minax(int[] arr)
+   {
+       int min=Integer.MAX_VALUE;
+       for(int i:arr)
+       {
+           if(i<min)
+               min=i;
+       }
+       return min;
+   }
+}
