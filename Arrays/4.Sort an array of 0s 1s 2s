@@ -1,0 +1,42 @@
+-Initilize two pointers p1 and p2
+-p1 =0,p2=last elem....p1 impiles that pos of zeroes as zeroes are at the start,similarly p2 impliesd pos of 2s
+-we initilze other running pointer between p1 and p2 as iter.
+-if iter==0
+  -we swap iter value with p1 value(p1 implies pos of zeroes)
+  -then we increment the iter and p1 value for next element
+-if iter==2
+  -we swap iter value with p2 calue(p2 implies pos of 2s)]
+  -then we decrement the p2 value(not increase the iter val,because we dont know the swapped value,so we have to recheck)
+-if iter==1
+  -we just increment the iter
+
+
+class Solution
+{
+    public static void sort012(int a[], int n)
+    {
+        int p1=0,p2=a.length-1,iter=0;
+        while(iter<=p2)
+        {
+            if(a[iter]==0)
+            {
+                swaps(a,p1,iter);
+                iter++;
+                p1++;
+            }
+            else if(a[iter]==2)
+            {
+                swaps(a,p2,iter);
+                p2--;
+            }
+            else
+                iter++;
+        }
+    }
+    public static void swaps(int[]arr,int a,int b)
+    {
+        int temp=arr[a];
+        arr[a]=arr[b];
+        arr[b]=temp;
+    }
+}
