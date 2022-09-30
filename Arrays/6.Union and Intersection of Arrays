@@ -1,0 +1,45 @@
+-Simply insert two array elements in the Hashset so that we have only distinct elems
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        HashSet<Integer>hs=new HashSet<>();
+        for(int i:a)
+            hs.add(i);
+        for(int i:b)
+            hs.add(i);
+        return hs.size();
+    }
+}
+
+INTERSECTION
+-Insert elems of one array to one set and other to other set
+-use the contains method to compare adn increment the count if match found
+-Return count
+
+Else
+-Insert one arr elems to set
+-compare the elems of other arr with set
+-if match found,count++ and remove that elem from set.(This way,There is need of only one set).
+
+class Solution {
+    // Function to return the count of the number of elements in
+    // the intersection of two arrays.
+    public static int NumberofElementsInIntersection(int a[], int b[], int n, int m) 
+    {
+        HashSet<Integer>hs=new HashSet<>();
+        int count=0;
+        for(int i:a)
+        {
+            hs.add(i);
+        }
+        for(int i:b)
+        {
+            if(hs.contains(i))
+            {
+                count++;
+                hs.remove(i);
+            }
+        }
+        return count;
+    }
+};
