@@ -1,0 +1,39 @@
+1.Create a temp array
+2.First store all +ve elems,then -ve lemes
+3.Copy the elems into original arr.
+
+
+
+class Solution {
+    
+    public void segregateElements(int arr[], int n)
+    {
+        int temp[]=new int[arr.length];
+        int x=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]>0)
+            {
+                temp[x++]=arr[i];
+            }
+        }
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]<0)
+            {
+                temp[x++]=arr[i];
+            }
+        }
+        for(int i=0;i<temp.length;i++)
+        {
+            arr[i]=temp[i];
+        }
+    }
+}
+
+
+Approach(2)[for moving to front side] similar for end side also(but only some changes)]
+Use partition algorithm
+As we have to seperate + and -ve elems ,we take pivot as 0 ,i=-1
+We run a j loop from 0 to length
+  if the lement is less than pivot, then i++,swap i element with j element.
